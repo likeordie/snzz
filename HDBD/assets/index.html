@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css" type="text/css">
+    <title>Ái Như</title>
+
+</head>
+<body>
+    <video class="bk-video" src="../source/vd_background.mp4" muted loop autoplay></video>
+    <div class="nav">
+        <h1 id="aliaswed">LIKEORDIE</h1>
+        <ul class="nav-menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">GAME</a></li>
+            <li><a href="#">PROJECT</a></li>
+            <li><a href="#">VLOG</a></li>
+        </ul>
+    </div>
+     <section class="showcase">
+         <header>
+             <h2 class="logo">HAPPY BIRTHDAY AI NHU</h2>
+             <div class="toggle"></div>
+         </header>
+         <div class="overlay"></div>
+         <div class="content-text">
+             <h2>Nerver Stop</h2>
+             <h2>No pain No gain</h2>
+             <h2>YEPPPPPPP</h2>
+             <a id="game" href="#">Trò chơi dành cho bạn</a>
+         </div>
+         <ul  class="Social">
+             <li><img src="../source/facebook.png" alt=""></li>
+             <li><img src="../source/instagram.png" alt=""></li>
+            
+         </ul>
+         <div class="dino">
+             <img  id="play" src="../source/play.png" alt="">
+             <img  id="pause" src="../source/pause.png" alt="">
+             <h1 id="score">0 / 5 con chó</h1>
+             <div id="nhu"></div>
+             <div id="cho"></div>
+             
+         </div>
+    
+     </section>
+     <div id="gitfbox" >
+        <div class="tooltip">
+            <span class="tooltiptext">Sao yếu vậy chị, bắt lấy em đi nào !</span>
+        </div>
+        <img  id="gitf" src="../source/giftbox.png" alt="">
+     </div>
+  
+     <script>
+         window.addEventListener("load", function(event) {
+            document.getElementsByClassName('dino')[0].style.visibility='hidden';
+            document.getElementById("pause").style.visibility="hidden";
+            document.getElementById("gitfbox").style.visibility="hidden";
+         });
+         document.getElementById("game").onclick=function(){
+             document.getElementsByClassName('content-text')[0].style.visibility='hidden';
+             document.getElementsByClassName('dino')[0].style.visibility="visible";
+         } 
+         var inLive;
+         const nhu=document.getElementById("nhu");
+         const cho=document.getElementById("cho");
+         function jump(){
+             if(nhu.classList!="jump"){
+                nhu.classList.add("jump");
+                setTimeout(function(){
+                    nhu.classList.remove("jump");
+                },1000);
+             }
+          
+         }
+         var checkgame=true;
+         var checkup=true;
+         function CollisonTarget(){
+             if(checkgame){
+            let topnhu=parseInt(window.getComputedStyle(nhu).getPropertyValue("top"));
+             let choleft=parseInt(window.getComputedStyle(cho).getPropertyValue("left"));
+             if(choleft<200 && choleft>30&&topnhu>-80){
+              
+                checkgame=false;
+                document.getElementById("score").innerHTML=parseInt(sr.split("/")[0])+1 +"0 / 5 con chó"; 
+            }else
+            if(choleft>40){
+                checkup=true;
+            }else
+             if(choleft<0){
+                if(checkup) Upscore();
+            }
+          }
+         }
+         function Upscore(){
+            var sr=document.getElementById("score").innerHTML;
+            
+            document.getElementById("score").innerHTML=parseInt(sr.split("/")[0])+1 +" / 5 con chó";    
+            if(parseInt(sr.split("/")[0])+1==5){
+                    AwardGift();
+                    cho.classList.remove("block");
+                    clearInterval(inLive);
+            }
+            checkup=false;
+         }
+         function AwardGift(){
+            document.getElementById('gitfbox').style.visibility="visible";
+            document.getElementById("gitfbox").style.transform="translate("+1250+"px,"+450+"px)";
+            document.getElementsByClassName('tooltiptext')[0].innerHTML="Chúc mừng chị sinh nhật zui zẻ nha, đây là quà của chị nè heheheh";
+
+         }
+         document.getElementById("play").addEventListener("click",function(){
+            inLive=setInterval(CollisonTarget);
+            cho.classList.add("block");
+            document.getElementById("pause").style.visibility="visible";
+            document.getElementById("play").style.visibility="hidden";
+         });
+         document.getElementById("pause").addEventListener("click",function(){
+            document.getElementById("pause").style.visibility="hidden";
+            document.getElementById("play").style.visibility="visible";
+            cho.classList.remove("block");
+            clearInterval(inLive);
+         });
+         var hoverr=0;
+         document.getElementById("gitf").addEventListener("mouseenter",function(){
+            var w= Math.floor(Math.random() *1000)+100;
+            var h=Math.floor(Math.random() *350)+200;
+            document.getElementById("gitfbox").style.transform="translate("+w+"px,"+h+"px)";
+            if(++hoverr==1){
+                document.getElementsByClassName("dino")[0].style.visibility="hidden";
+                document.getElementById("pause").style.visibility="hidden";
+            document.getElementById("play").style.visibility="hidden";
+                document.getElementsByClassName('tooltiptext')[0].innerHTML="Bắt lấy em đi";
+            }
+            if(++hoverr==30){
+                document.getElementsByClassName('tooltiptext')[0].innerHTML="Sao, chưa mệt hả chị";
+            }
+         });
+         document.addEventListener("keydown",function(event){
+            jump();
+         });
+     </script>
+</body>
+</html>

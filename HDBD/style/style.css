@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:wght@600&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Shadows+Into+Light&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.nav{
+    width: 80%;
+    height: 100px;
+    color: aliceblue;
+    margin: auto;
+}
+.nav #aliaswed{
+    display: inline-block;
+    float: left;
+    margin: 15px 0 0 50px;
+    letter-spacing: 10px;
+    font-size: 40px;
+}
+.nav .nav-menu{
+    margin:30px 50px 0 0;
+    display: inline-block;
+    float: right;
+    list-style-type: none;
+    
+}
+.nav-menu li{
+   
+    padding-right: 20px;
+    display: inline;
+}
+
+.nav-menu li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.bk-video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+.showcase{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+    
+   
+}
+.logo{
+    position: absolute;
+    left: 580px;
+    top: 100px;
+    font-size: 50px;
+    
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    
+}
+.toggle{
+    
+}
+.content-text{
+    position: absolute;
+    left: 700px;
+    top: 200px;
+   
+}
+.content-text h2{
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Amatic SC', cursive;
+}
+.content-text a{
+    width: 200px;
+    height:30px;
+    display: inline-block;
+    background-color: bisque;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 2px;
+    margin-top: 50px;
+}
+
+.Social {
+    position: absolute;
+    right: 0px;
+    top: 130px;
+    width: 55px;
+    height: 130px;
+    border-radius: 20px;
+    background-color: aliceblue;
+
+    list-style-type: none;
+}
+.Social li img{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: aliceblue;
+    visibility: hidden;
+}
+
+.dino{
+    width: 1200px;
+    height: 300px;
+    position: relative;
+    left:200px;
+    top: 250px;
+    background-color: aqua;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+#nhu{
+    position: absolute;
+    width: 150px;
+    left: 70px;
+    background-image: url("../source/Nhu.png");
+    background-repeat:no-repeat;
+    background-size: 180px;
+    top: 0px;
+    height: 300px;
+    
+}
+.jump{
+    animation: jump 1s  linear;
+}
+@keyframes jump{
+   0%{
+       top:0px;
+ }
+    50%{
+        top:-250px;
+    }
+    
+    100%{
+        top:0px;
+    }
+
+}
+
+#cho{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 1050px;
+    background-image: url("../source/cho.png"); 
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    
+    
+}
+.block{
+    animation: block  3s infinite linear;
+}
+@keyframes block{
+    0%{
+        left: 1050px;
+    }
+    100%{
+        left: -30px;
+    }
+}
+
+#play{
+    margin-top: 100px;
+    
+}
+#pause{
+    position: absolute;
+    left: 550px;
+}
+
+#score{
+    position: absolute;
+    left: 1000px;
+    top: 10px;
+}
+#gitfbox{
+  position: absolute;
+  left:0;
+  top: 0;
+}
+
+  
+#gitfbox .tooltip .tooltiptext {
+    width: 120px;
+    background-color: rgb(199, 140, 140);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: 20px;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(199, 140, 140) transparent transparent transparent;
+  }
+  
